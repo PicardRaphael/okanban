@@ -1,3 +1,10 @@
 .task-list .card{
     margin-left: 1em;
+    height: fit-content;
+    flex-shrink: 0;
+}
+
+
+.fa-edit, .fa-trash-alt {
+    cursor: pointer;
 }

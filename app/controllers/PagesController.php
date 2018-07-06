@@ -11,7 +11,7 @@ class PagesController
   // Notre page CGU
   public function cgu()
   {
-    $this->show('cgu');
+    $this->show('mentions-legals');
   }
 
   public function show($page)

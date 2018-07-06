@@ -4,15 +4,36 @@
 include(__DIR__.'/../app/controllers/MainController.php');
 include(__DIR__.'/../app/controllers/ListController.php');
 include(__DIR__.'/../app/controllers/PagesController.php');
-
 include(__DIR__.'/../app/inc/AltoRouter.php');
 include(__DIR__.'/../app/inc/Database.php');
-
 include(__DIR__.'/../app/models/CardModel.php');
 include(__DIR__.'/../app/models/ListModel.php');
-
+/*
+# Routage Simple, fonctionnel avec des routes statics
+// Récupération de mon URL
+$currentUrl = isset($_GET['_url']) ? $_GET['_url'] : '';
+// Si mon URL est vide
+if (empty($currentUrl)) {
+  $mainController = new MainController();
+  $mainController->home();
+// Si mon URL vaux '/cgu'
+} else if ($currentUrl == '/cgu') {
+  $mainController = new MainController();
+  $mainController->cgu();
+// Si mon URL vaux '/list/create'
+} else if ($currentUrl == '/list/create') {
+  $listController = new ListController();
+  $listController->create();
+// Si mon URL est de la forme : /list/[un id non déterminé]/edit
+// AIE PROBLEME !
+} else if ($currentUrl == '/list/'.$id.'/edit') {
+// Pour tout le reste => 404
+} else {
+  $mainController = new MainController();
+  $mainController->error404();
+}
+*/
 # Routage avec AltoRouter
-
 // J'instancie AltoRouter
 $router = new AltoRouter();
 // Je déclare à AltoRouter la partie "fixe" de mon URL
@@ -20,17 +41,14 @@ $router = new AltoRouter();
 // Je profite de la configuration de mon fichier .htaccess qui demande à Apache
 // de fournir une variable $_SERVER['BASE_URI'] contenant cette partie fixe de l'URL
 $router->setBasePath($_SERVER['BASE_URI']);
-
 // Déclaration de mes routes à AltoRouter
 $router->map('GET', '/', 'MainController#home', 'accueil');
-
-$router->map('GET', '/mentions-legals', 'PagesController#cgu', 'cgu');
-$router->map('GET', '/contact', 'PagesController#contact', 'contact');
-
 $router->map('GET', '/list', 'ListController#all', 'list_all');
 $router->map('POST', '/list/create', 'ListController#create', 'list_create');
-$router->map('GET', '/list/[id]/edit', 'ListController#edit', 'list_edit');
-
+$router->map('POST', '/list/update', 'ListController#update', 'list_update');
+$router->map('POST', '/list/delete', 'ListController#delete', 'list_delete');
+$router->map('GET', '/contact', 'PagesController#contact', 'contact');
+$router->map('GET', '/mentions-legales', 'PagesController#cgu', 'cgu');
 // Je demande à AltoRouter de regarder si il y a une correspondance entre
 // mon URL actuelle et mes routes déclarées.
 $match = $router->match();
@@ -56,9 +74,7 @@ if ($match !== false) {
   /* La variable $methodName va être remplacée par PHP par sa valeur
     par exemple: $controller->home();
   */
-} 
-else 
-{
+} else {
   $mainController = new MainController();
   $mainController->error404();
 }
