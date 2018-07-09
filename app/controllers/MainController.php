@@ -1,4 +1,5 @@
 <?php
+
 class MainController
 {
   // Notre page d'accueil
@@ -12,14 +13,10 @@ class MainController
     $this->show('404');
   }
 
-
   public function show($page)
   {
     include(__DIR__.'/../views/header.php');
     include(__DIR__.'/../views/'.$page.'.php');
     include(__DIR__.'/../views/footer.php');
   }
-
-
-
 }

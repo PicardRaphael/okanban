@@ -47,6 +47,17 @@ class ListModel
     $deletedRows = Database::getPDO()->exec($sql);
     return $deletedRows == 1;
   }
+
+  public function hasCards(){
+    $sql = 'SELECT COUNT(*) as "nbr" FROM cards WHERE list_id="'.$this->id.'"';
+
+    $pdoStatement = Database::getPDO()->query($sql);
+    $response = $pdoStatement->fetch(PDO::FETCH_ASSOC);
+
+    //Si pas cards retourn false
+    return $response['nbr'] > 0;
+  }
+
   public static function find($searched_id)
   {
     // Je stock mon SQL à executer dans une variable

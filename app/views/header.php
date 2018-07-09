@@ -7,8 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="css/all.css">
+    <!-- Ajout de fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <!-- Je link également mon css -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -17,28 +17,26 @@
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">oKanban</a>
+      <a class="navbar-brand" href="#">oKanban</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="list">Mes listes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact">Contact</a>
+            <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="mentions-legals">Mentions Légales</a>
+            <a class="nav-link" href="#">Mentions Légales</a>
           </li>
         </ul>
       </div>
     </nav>
 
     <main class="container">
-
-  

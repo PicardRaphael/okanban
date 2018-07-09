@@ -2,16 +2,14 @@
 
 class PagesController
 {
-  // Notre page contact
   public function contact()
   {
     $this->show('contact');
   }
 
-  // Notre page CGU
   public function cgu()
   {
-    $this->show('mentions-legals');
+    $this->show('cgu');
   }
 
   public function show($page)
@@ -20,7 +18,4 @@ class PagesController
     include(__DIR__.'/../views/'.$page.'.php');
     include(__DIR__.'/../views/footer.php');
   }
-
-  
-
 }

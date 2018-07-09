@@ -1,1 +1,0 @@
-<h1 class="mt-3">Mentions légales</h1>

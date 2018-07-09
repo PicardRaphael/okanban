@@ -1,1 +1,1 @@
-<h1 class="m-3">Coucou je suis l'accueil</h1>
+<h1>Coucou je suis l'accueil</h1>
