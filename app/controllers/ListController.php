@@ -1,5 +1,5 @@
 <?php
-class ListController
+class ListController extends MainController
 {
   public function all()
   {
@@ -33,8 +33,7 @@ class ListController
       $listModel->setName($_POST['listName']);
       $listModel->add();
     }
-    header('Content-Type: application/json');
-    echo json_encode($array_response);
+    $this->displayJson($array_response);
   }
 
   public function update()
@@ -87,9 +86,7 @@ class ListController
         }   
       }
     }
-    header('Content-Type: application/json');
-    $array_response_json = json_encode($array_response);
-    echo $array_response_json;
+    $this->displayJson($array_response);
   }
 
   public function delete()
@@ -128,14 +125,8 @@ class ListController
       }
 
     }
-      header('Content-Type: application/json');
-      echo json_encode($array_response);
+    $this->displayJson($array_response);
   }
 
-  public function show($page, $array_vars = array())
-  {
-    include(__DIR__.'/../views/header.php');
-    include(__DIR__.'/../views/'.$page.'.php');
-    include(__DIR__.'/../views/footer.php');
-  }
+
 }

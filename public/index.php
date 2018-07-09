@@ -63,7 +63,7 @@ $router = new AltoRouter();
 $router->setBasePath($_SERVER['BASE_URI']);
 
 // Déclaration de mes routes à AltoRouter
-$router->map('GET', '/', 'MainController#home', 'accueil');
+$router->map('GET', '/', 'PagesController#home', 'accueil');
 
 $router->map('GET', '/list', 'ListController#all', 'list_all');
 $router->map('POST', '/list/create', 'ListController#create', 'list_create');
@@ -113,6 +113,6 @@ if ($match !== false) {
 
 } else {
 
-  $mainController = new MainController();
-  $mainController->error404();
+  $pageController = new PagesController();
+  $pageController->error404();
 }

@@ -1,6 +1,6 @@
 <?php
 
-class PagesController
+class PagesController extends MainController
 {
   public function contact()
   {
@@ -11,11 +11,16 @@ class PagesController
   {
     $this->show('cgu');
   }
-
-  public function show($page)
+  
+  // Notre page d'accueil
+  public function home()
   {
-    include(__DIR__.'/../views/header.php');
-    include(__DIR__.'/../views/'.$page.'.php');
-    include(__DIR__.'/../views/footer.php');
+    $this->show('accueil');
   }
+
+  public function error404()
+  {
+    $this->show('404');
+  }
+
 }

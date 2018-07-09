@@ -6,7 +6,11 @@
   height: fit-content;
   flex-shrink: 0; 
 }
-.fa-edit, .fa-trash-alt .addCardBtn{
+.fa-edit, 
+.fa-trash-alt, 
+.addCardBtn,
+.fa-plus-circle,
+.fa-palette {
   cursor: pointer;
 }
 
